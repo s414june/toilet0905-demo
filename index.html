@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>充電樁管理系統</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./font-awesome/css/all.min.css">
+    <script src="js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./font-awesome/js/all.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
+
+    <!-- datatable -->
+    <link rel="stylesheet" type="text/css"
+        href="./css/datatables.min.css" />
+    <script type="text/javascript"
+        src="js/datatables.min.js"></script>
+
+    <!-- chart.js -->
+    <script src="./js/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
+    <script src="./headerScript.js"></script>
+</head>
+
+<body>
+    <header>
+    </header>
+    <script>
+        $.get('header.html', function (response) {
+            response = response.replace("${title-text}", "系統儀錶板");
+            $('header').html(response);
+            afterGetHeader();
+        });
+    </script>
+    <!-- <div id="title">
+        <div class="w-100 pt-4 position-fixed">
+            <h3 class="ps-5 ms-4 pb-1 text-white">系統儀錶板</h3>
+        </div>
+    </div> -->
+    <div class="d-flex position-relative">
+        <div class="menu-holder"></div>
+        <section class="position-relative w-100" id="system-main">
+            <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
+                <div class="row justify-content-center align-items-stretch w-100">
+                    <div class="col-xl-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body position-relative p-2">
+                                <h5 class="text-primary card-title">場站總覽</h5>
+                                <div class="w-100 d-flex align-items-center justify-content-center">
+                                    <div class="overviewChartOutside">
+                                        <canvas id="overviewChart" style="position: relative;"></canvas>
+                                    </div>
+                                </div>
+                                <table id="dollarTable" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>場站</th>
+                                            <th>管理單位</th>
+                                            <th>充電樁數量</th>
+                                            <th>快充數量</th>
+                                            <th>慢充數量</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>大同智能</td>
+                                            <td>10</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>圓山</td>
+                                            <td>大同智能</td>
+                                            <td>10</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body position-relative p-2">
+                                <h5 class="text-primary card-title">群組總覽</h5>
+                                <div class="w-100 d-flex align-items-center justify-content-center">
+                                    <div class="overviewChartOutside">
+                                        <canvas id="overviewChart2" style="position: relative;"></canvas>
+                                    </div>
+                                </div>
+                                <table id="dollarTable" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>群組名稱</th>
+                                            <th>場站</th>
+                                            <th>充電樁數量</th>
+                                            <th>負載限流</th>
+                                            <th>現在負載</th>
+                                            <th>是否告警</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>大同廠區電樁</td>
+                                            <td>民權西</td>
+                                            <td>10</td>
+                                            <td>1500 kW</td>
+                                            <td>300 kW</td>
+                                            <td>否</td>
+                                        </tr>
+                                        <tr>
+                                            <td>花博廠區電樁</td>
+                                            <td>圓山</td>
+                                            <td>10</td>
+                                            <td>1500 kW</td>
+                                            <td>420 kW</td>
+                                            <td>否</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+
+    const data = {
+        labels: [
+            '民權西',
+            '大同智能'
+        ],
+        datasets: [{
+            label: '場站分布圖',
+            data: [10, 10],
+            backgroundColor: [
+                '#38bdf8',
+                '#22d3ee'
+            ],
+            hoverOffset: 4,
+        }]
+    };
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: '場站分布'
+                }
+            }
+        }
+    };
+    const overviewChart = new Chart(
+        document.getElementById('overviewChart'),
+        config
+    );
+
+    const data2 = {
+        labels: [
+            '民權西',
+            '大同智能'
+        ],
+        datasets: [{
+            label: '群組分布',
+            data: [6171, 7136],
+            backgroundColor: [
+                '#f87171',
+                '#fb923c'
+            ],
+            hoverOffset: 4,
+        }]
+    };
+    const config2 = {
+        type: 'pie',
+        data: data2,
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: '現在負載分布'
+                }
+            }
+        }
+    };
+    const overviewChart2 = new Chart(
+        document.getElementById('overviewChart2'),
+        config2
+    );
+</script>
+<style>
+    .overviewChartOutside {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 575px) {
+        .overviewChartOutside {
+            width: 50vw;
+            height: 50vw;
+        }
+    }
+</style>
+
+</html>
