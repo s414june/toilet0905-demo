@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>充電樁管理系統</title>
+    <title>智慧廁所管理平台</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./font-awesome/css/all.min.css">
     <script src="js/popper.min.js"></script>
@@ -18,13 +18,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
 
     <!-- datatable -->
-    <link rel="stylesheet" type="text/css"
-        href="./css/datatables.min.css" />
-    <script type="text/javascript"
-        src="js/datatables.min.js"></script>
-
-    <!-- chart.js -->
-    <script src="./js/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/datatables.min.css" />
+    <script type="text/javascript" src="js/datatables.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
     <script src="./script.js"></script>
@@ -33,14 +28,122 @@
 
 <body>
     <header>
+        <div id="menu" class="d-flex flex-column shadow">
+            <div id="desktopMenu">
+                <div class="d-flex px-1 py-3 align-items-center" id="menu-header">
+                    <div class="menu-btn" id="desktopMenuBtn">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="d-flex align-items-center text-center title-container">
+                        <a href="./index.html" class="ps-md-0 ps-2">
+                            <i class="fa-solid fa-charging-station p-2 fa-lg text-primary"
+                                style="color:var(--bs-teal)"></i>
+                        </a>
+                        <a href="./index.html">
+                            <p class="m-0 text-primary title hide-when-collapsed show">智慧廁所管理平台</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add .accordion-flush to remove the default background-color -->
+            <div class="accordion accordion-flush mt-1 hide-when-collapsed show flex-grow-1 d-flex flex-column"
+                id="menu-tree">
+                <div class="accordion-item no-arrow">
+                    <h2 class="accordion-header" id="headingOne">
+                        <a href="./index.html">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseNowArrow" aria-expanded="false"
+                                aria-controls="collapseNowArrow">
+                                儀錶板
+                            </button>
+                        </a>
+                    </h2>
+                    <div id="collapseNowArrow" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#menu-tree">
+                    </div>
+                </div>
+                <div class="accordion-item no-arrow">
+                    <h2 class="accordion-header" id="headingOne">
+                        <a href="./index.html">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseNowArrow" aria-expanded="false"
+                                aria-controls="collapseNowArrow">
+                                告警管理
+                            </button>
+                        </a>
+                    </h2>
+                    <div id="collapseNowArrow" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#menu-tree">
+                    </div>
+                </div>
+                <div class="accordion-item no-arrow">
+                    <h2 class="accordion-header" id="headingOne">
+                        <a href="./index.html">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseNowArrow" aria-expanded="false"
+                                aria-controls="collapseNowArrow">
+                                遊客回饋系統
+                            </button>
+                        </a>
+                    </h2>
+                    <div id="collapseNowArrow" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#menu-tree">
+                    </div>
+                </div>
+            </div>
+            <div id="account" class="p-3 hide-when-collapsed show">
+                <div class="hide-when-collapsed show dropdown">
+                    <button class="m-0 d-block dropdown-toggle d-flex align-items-center" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div>
+                            <span>Hi~</span>
+                            <span>西拉雅國家風景區官田服務中心</span>
+                        </div>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-center" onclick="Logout()" href="#">登出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="position-fixed py-2 px-1 collapsed" id="mobileMenu">
+            <div class="menu-btn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="title">
+            <div class="d-flex position-fixed w-100 bg-primary-light">
+                <div class="menu-holder"></div>
+                <div class="flex-grow-1 bg-primary-light d-flex px-2">
+                    <div class="dropdown m-2">
+                        <button class="btn btn-light text-primary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            官田服務中心
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">官田服務中心</a></li>
+                            <li><a class="dropdown-item" href="#">服務中心2</a></li>
+                            <li><a class="dropdown-item" href="#">服務中心3</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown m-2">
+                        <button class="btn btn-light text-primary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            全區
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1F</a></li>
+                            <li><a class="dropdown-item" href="#">2F</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
-    <script>
-        $.get('header.html', function (response) {
-            response = response.replace("${title-text}", "系統儀錶板");
-            $('header').html(response);
-            afterGetHeader();
-        });
-    </script>
     <!-- <div id="title">
         <div class="w-100 pt-4 position-fixed">
             <h3 class="ps-5 ms-4 pb-1 text-white">系統儀錶板</h3>
@@ -49,87 +152,71 @@
     <div class="d-flex position-relative">
         <div class="menu-holder"></div>
         <section class="position-relative w-100" id="system-main">
-            <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
+            <div class="p-2 px-xl-4 position-relative d-flex flex-column align-items-center w-100">
                 <div class="row justify-content-center align-items-stretch w-100">
                     <div class="col-xl-6 mb-3">
-                        <div class="card shadow-sm h-100">
+                        <div class="card shadow-sm">
                             <div class="card-body position-relative p-2">
-                                <h5 class="text-primary card-title">場站總覽</h5>
-                                <div class="w-100 d-flex align-items-center justify-content-center">
-                                    <div class="overviewChartOutside">
-                                        <canvas id="overviewChart" style="position: relative;"></canvas>
+                                <h5 class="text-primary card-title text-center place-title green">官田服務中心 - 1F</h5>
+                                <div class="d-flex row m-2">
+                                    <div class="col-6">
+                                        <div class="card shadow-sm toilet-status h-100">
+                                            <h6 class="text-white card-title text-center bg-primary-light py-2">剩餘間數
+                                            </h6>
+                                            <ul>
+                                                <li class="green-list">男廁：<span>2</span></li>
+                                                <li class="red-list">女廁：<span>滿</span></li>
+                                                <li class="green-list">多功能廁所：<span>1</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card shadow-sm toilet-status h-100">
+                                            <h6 class="text-white card-title text-center bg-primary-light py-2">空氣品質
+                                            </h6>
+                                            <ul>
+                                                <li class="green-list">溫度：<span>26度</span></li>
+                                                <li class="green-list">濕度：<span>50%</span></li>
+                                                <li class="green-list">TVOC：<span>0.5 PPM</span></li>
+                                                <li class="green-list">CO2：<span>1.0 PPM</span></li>
+                                                <li class="green-list">PM2.5：<span>12 𝑢𝑔/𝑚^3</span></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <table id="dollarTable" class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>場站</th>
-                                            <th>管理單位</th>
-                                            <th>充電樁數量</th>
-                                            <th>快充數量</th>
-                                            <th>慢充數量</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>大同智能</td>
-                                            <td>10</td>
-                                            <td>5</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>圓山</td>
-                                            <td>大同智能</td>
-                                            <td>10</td>
-                                            <td>5</td>
-                                            <td>5</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6 mb-3">
-                        <div class="card shadow-sm h-100">
+                        <div class="card shadow-sm">
                             <div class="card-body position-relative p-2">
-                                <h5 class="text-primary card-title">群組總覽</h5>
-                                <div class="w-100 d-flex align-items-center justify-content-center">
-                                    <div class="overviewChartOutside">
-                                        <canvas id="overviewChart2" style="position: relative;"></canvas>
+                                <h5 class="text-primary card-title text-center place-title red">官田服務中心 - 2F</h5>
+                                <div class="d-flex row m-2">
+                                    <div class="col-6">
+                                        <div class="card shadow-sm toilet-status h-100">
+                                            <h6 class="text-white card-title text-center bg-primary-light py-2">剩餘間數
+                                            </h6>
+                                            <ul>
+                                                <li class="green-list">男廁：<span>2</span></li>
+                                                <li class="red-list">女廁：<span>滿</span></li>
+                                                <li class="green-list">多功能廁所：<span>1</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card shadow-sm toilet-status h-100">
+                                            <h6 class="text-white card-title text-center bg-primary-light py-2">空氣品質
+                                            </h6>
+                                            <ul>
+                                                <li class="green-list">溫度：<span>26度</span></li>
+                                                <li class="green-list">濕度：<span>50%</span></li>
+                                                <li class="green-list">TVOC：<span>0.5 PPM</span></li>
+                                                <li class="green-list">CO2：<span>1.0 PPM</span></li>
+                                                <li class="green-list">PM2.5：<span>12 𝑢𝑔/𝑚^3</span></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <table id="dollarTable" class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>群組名稱</th>
-                                            <th>場站</th>
-                                            <th>充電樁數量</th>
-                                            <th>負載限流</th>
-                                            <th>現在負載</th>
-                                            <th>是否告警</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>大同廠區電樁</td>
-                                            <td>民權西</td>
-                                            <td>10</td>
-                                            <td>1500 kW</td>
-                                            <td>300 kW</td>
-                                            <td>否</td>
-                                        </tr>
-                                        <tr>
-                                            <td>花博廠區電樁</td>
-                                            <td>圓山</td>
-                                            <td>10</td>
-                                            <td>1500 kW</td>
-                                            <td>420 kW</td>
-                                            <td>否</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
                             </div>
                         </div>
                     </div>
@@ -168,10 +255,6 @@
             }
         }
     };
-    const overviewChart = new Chart(
-        document.getElementById('overviewChart'),
-        config
-    );
 
     const data2 = {
         labels: [
@@ -201,10 +284,6 @@
             }
         }
     };
-    const overviewChart2 = new Chart(
-        document.getElementById('overviewChart2'),
-        config2
-    );
 </script>
 <style>
     .overviewChartOutside {

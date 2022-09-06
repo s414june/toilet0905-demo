@@ -1,4 +1,4 @@
-function afterGetHeader() {
+$(function(){
     VerifyUser();
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
     vh = window.innerHeight * 0.01;
@@ -43,4 +43,9 @@ function afterGetHeader() {
     $(".not-opening-url").click((e) => {
         alert("此項目尚未啟用！");
     })
-}
+
+    $(window).resize(() => {
+        const dropdown = new bootstrap.Dropdown(document.querySelector("#account .dropdown-toggle"))
+        dropdown.hide();
+    })
+})

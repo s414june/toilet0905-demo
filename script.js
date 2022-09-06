@@ -1,8 +1,8 @@
 let vh = window.innerHeight * 0.01;
 
 function VerifyUser() {
-    const testAccount = "tatung";
-    const testPassword = "70771557Car";
+    const testAccount = "etatung";
+    const testPassword = "123";
     let Account = localStorage.getItem("Account");
     let Password = localStorage.getItem("Password");
     if (Account == testAccount && Password == testPassword) {

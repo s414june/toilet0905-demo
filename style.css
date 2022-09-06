@@ -9,9 +9,9 @@
     0px - var(--menu-btn-height) - var(--menu-btn-margin-y)
   );
 
-  --bs-primary: rgb(20, 174, 179);
-  --bs-primary-rgb: 20, 174, 179;
-  --bs-primary-light: #4fc2c6;
+  --bs-primary: rgb(26, 124, 194);
+  --bs-primary-rgb: 26, 124, 194;
+  --bs-primary-light: rgb(54, 156, 230);
 }
 a {
   text-decoration: none;
@@ -58,6 +58,7 @@ input[type='range']:active::-webkit-slider-thumb {
 }
 .menu-holder {
   z-index: -1;
+  flex: none;
 }
 #menu {
   z-index: 5;
@@ -129,6 +130,7 @@ input[type='range']:active::-webkit-slider-thumb {
 }
 #menu-tree {
   overflow-y: auto;
+  justify-content: space-around;
 }
 
 #menu-tree::-webkit-scrollbar {
@@ -140,10 +142,23 @@ input[type='range']:active::-webkit-slider-thumb {
 #menu-tree::-webkit-scrollbar-thumb {
   background: rgb(177, 177, 177);
 }
-#menu-header,
-#account {
+#menu-header {
   background-color: var(--bs-white);
   color: var(--bs-primary);
+}
+#account {
+  /* background-color: var(--bs-white); */
+  color: var(--bs-white);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#account button {
+  background-color: inherit;
+  border: inherit;
+  color: inherit;
+  text-align: left;
+  white-space: inherit;
 }
 #menu .accordion-button {
   background-color: var(--bs-primary);
@@ -351,9 +366,80 @@ input[type='range']:active::-webkit-slider-thumb {
 #title > div {
   z-index: 1;
 }
-.bg-primary-light{
+.bg-primary-light {
   background-color: var(--bs-primary-light);
 }
 div.dataTables_wrapper .row {
   margin: 0;
+}
+
+#menu .accordion-item {
+  border: none;
+}
+
+#account {
+  position: fixed;
+  top: 0;
+  right: 0;
+  line-height: 1.2;
+}
+#account>div{
+  width: 100%;
+}
+#account .dropdown-menu{
+  left: 100% !important;
+  top: 0.6rem !important;
+}
+@media (max-width: 991px) {
+  #account {
+    /* position: fixed; */
+    position: relative;
+    /* bottom: 25px;
+    left: 0; */
+    z-index: 10;
+    height: fit-content;
+    top: initial;
+  }
+  #account span {
+    display: block;
+  }
+  #account .dropdown-toggle::after {
+    display: none;
+  }
+  #menu-tree {
+    justify-content: start;
+  }
+  #account .dropdown-menu{
+    left: initial !important;
+    top: initial !important;
+  }
+}
+.place-title{
+  font-size: 1.5rem;
+}
+.place-title::after{
+  content: "●";
+  padding: 0.5rem;
+}
+.place-title.green::after{
+  color: var(--bs-success);
+}
+.place-title.red::after{
+  color: var(--bs-danger);
+}
+.toilet-status{
+  font-size: 1.2rem;
+}
+.toilet-status li{
+  list-style: none;
+}
+.toilet-status li::before{
+  content: "●";
+  padding: 0.5rem;
+}
+.toilet-status .green-list::before,.toilet-status .green-list>span{
+  color: var(--bs-success);
+}
+.toilet-status .red-list::before,.toilet-status .red-list>span{
+  color: var(--bs-danger);
 }
