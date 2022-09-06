@@ -443,3 +443,6 @@ div.dataTables_wrapper .row {
 .toilet-status .red-list::before,.toilet-status .red-list>span{
   color: var(--bs-danger);
 }
+.toilet-status ul{
+  padding-left: 1rem;
+}
