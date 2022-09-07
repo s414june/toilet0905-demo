@@ -1,0 +1,661 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧廁所管理平台</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./font-awesome/css/all.min.css">
+    <script src="js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./font-awesome/js/all.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
+
+    <!-- datatable -->
+    <link rel="stylesheet" type="text/css" href="./css/datatables.min.css" />
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
+    <script src="./headerScript.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="menu" class="d-flex flex-column shadow">
+            <div id="desktopMenu">
+                <div class="d-flex px-1 py-3 align-items-center" id="menu-header">
+                    <div class="menu-btn" id="desktopMenuBtn">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="d-flex align-items-center text-center title-container w-100 justify-content-center">
+                        <a href="./index.html" class="ps-md-0 ps-2">
+                            <i class="fa-solid fa-charging-station p-2 fa-lg text-primary"
+                                style="color:var(--bs-teal)"></i>
+                        </a>
+                        <a href="./index.html">
+                            <p class="m-0 text-primary title hide-when-collapsed show">智慧廁所管理平台</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add .accordion-flush to remove the default background-color -->
+            <div class="mt-1 flex-grow-1 flex-column" id="menu-tree">
+                <div>
+                    <a href="./index.html">
+                        <button class="btn btn-primary w-100" type="button">
+                            <span class="hide-when-collapsed show menu-list-icon">
+                                <i class="fa-solid fa-gauge-high text-white"></i>
+                            </span>
+                            <span>
+                                儀錶板
+                            </span>
+                        </button>
+                    </a>
+                </div>
+                <div class="active">
+                    <a href="./warning.html">
+                        <button class="btn btn-primary w-100" type="button">
+                            <span class="hide-when-collapsed show menu-list-icon">
+                                <i class="fa-solid fa-bell text-white"></i>
+                            </span>
+                            <span>告警管理</span>
+                        </button>
+                    </a>
+                </div>
+                <div>
+                    <a href="./mail.html">
+                        <button class="btn btn-primary w-100" type="button">
+                            <span class="hide-when-collapsed show menu-list-icon">
+                                <i class="fa-solid fa-paper-plane text-white"></i>
+                            </span>
+                            <span>遊客回饋系統</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div id="account" class="p-3 hide-when-collapsed show">
+                <div class="dropdown">
+                    <button class="m-0 d-block dropdown-toggle d-flex align-items-center" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div>
+                            <span>Hi~</span>
+                            <span>西拉雅國家風景區官田服務中心</span>
+                        </div>
+                    </button>
+                    <ul class="dropdown-menu" id="logout-place">
+                        <li><a class="dropdown-item text-center" onclick="Logout()" href="#">登出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="position-fixed py-2 px-1 collapsed" id="mobileMenu">
+            <div class="menu-btn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="title">
+            <div class="d-flex position-fixed w-100 bg-primary-light">
+                <div class="menu-holder"></div>
+                <div class="flex-grow-1 bg-primary-light d-flex px-2">
+                    <div class="dropdown m-2">
+                        <button class="btn btn-light text-primary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            官田服務中心
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">官田服務中心</a></li>
+                            <li><a class="dropdown-item" href="#">服務中心2</a></li>
+                            <li><a class="dropdown-item" href="#">服務中心3</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown m-2">
+                        <button class="btn btn-light text-primary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            2F
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1F</a></li>
+                            <li><a class="dropdown-item" href="#">2F</a></li>
+                            <li><a class="dropdown-item" href="./index.html">全區</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="d-flex position-relative">
+        <div class="menu-holder"></div>
+        <section class="position-relative w-100" id="system-main">
+            <div class="d-flex justify-content-between px-2 px-xl-4" id="sub-title">
+                <div class="d-flex align-items-center">
+                    <h4 class="text-primary my-0 me-3">告警管理</h4>
+                    <div class="dropdown m-2">
+                        <button class="btn btn-outline-primary text-primary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            111年度
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">111年度</a></li>
+                            <li><a class="dropdown-item" href="#">110年度</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown m-2">
+                        <button class="btn btn-outline-primary text-primary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            8月
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1月</a></li>
+                            <li><a class="dropdown-item" href="#">2月</a></li>
+                            <li><a class="dropdown-item" href="#">3月</a></li>
+                            <li><a class="dropdown-item" href="#">4月</a></li>
+                            <li><a class="dropdown-item" href="#">5月</a></li>
+                            <li><a class="dropdown-item" href="#">6月</a></li>
+                            <li><a class="dropdown-item" href="#">7月</a></li>
+                            <li><a class="dropdown-item" href="#">8月</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary">報表匯出</button>
+                </div>
+            </div>
+            <div class="p-2 px-xl-4 position-relative d-flex flex-column align-items-center w-100 position-relative" id="sub-detail">
+                <div class="row justify-content-center align-items-stretch w-100 h-100">
+                    <div class="col-xl-9 mb-3 h-100 overflow-auto">
+                        <div class="card shadow-sm">
+                            <div class="card-body position-relative p-2">
+                                <div class="d-flex row m-2">
+                                    <div class="query-place">
+                                        狀態
+                                        <select class="form-select my-1" aria-label="Default select example">
+                                            <option selected>全部</option>
+                                            <option value="1">全部</option>
+                                            <option value="2">解除</option>
+                                            <option value="3">告警</option>
+                                        </select>
+                                    </div>
+                                    <div class="query-place">
+                                        事件名稱
+                                        <input type="text" name="" id="" class="form-control" placeholder="請輸入關鍵字">
+                                    </div>
+                                    <div class="query-place">
+                                        服務
+                                        <select class="form-select my-1" aria-label="Default select example">
+                                            <option selected>全部</option>
+                                            <option value="1">全部</option>
+                                            <option value="2">Sensor異常通知</option>
+                                        </select>
+                                    </div>
+                                    <div class="query-place">
+                                        發起對象
+                                        <input type="text" name="" id="" class="form-control" placeholder="請輸入關鍵字">
+                                    </div>
+                                    <div class="query-place">
+                                        解除紀錄
+                                        <input type="text" name="" id="" class="form-control" placeholder="請輸入關鍵字">
+                                    </div>
+                                    <div class="query-place d-flex align-items-end justify-content-end">
+                                        <button class="btn btn-primary">搜尋</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 card shadow-sm p-2">
+                            <table id="example" class="table table-striped" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>狀態</th>
+                                        <th>事件名稱</th>
+                                        <th>服務</th>
+                                        <th>發起對象</th>
+                                        <th>發生時間</th>
+
+                                        <th>裝置識別ID</th>
+                                        <th>事件位置</th>
+                                        <th>解除紀錄</th>
+                                        <th>最近更新時間</th>
+                                        <th style="width:3rem;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: middle;">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>解除</td>
+                                        <td>IAQ不良</td>
+                                        <td>Sensor異常通知</td>
+                                        <td>男廁空氣品質</td>
+                                        <td>2022-08-22 13:34:26</td>
+                                        <td>FURTPE2112S00261</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>2022-08-22 13:38:25</td>
+                                        <td>
+                                            <button class="btn btn-primary">通知</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 mb-3 h-100 overflow-auto">
+                        <div class="card shadow">
+                            <div class="card-body position-relative p-2">
+                                <div class="d-flex row m-2">
+                                    <h5 class="text-secondary card-title alert-title d-flex align-items-center justify-content-between">
+                                        <span>
+                                            <i class="fa-solid fa-bell"></i>
+                                            事件紀錄
+                                        </span>
+                                    </h5>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                    <div class="alert-details d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p class="text-secondary">09:56</p>
+                                            <p class="text-danger">南廠男廁廁間 跌倒</p>
+                                            <p class="text-secondary">AT3XXXXXXXXX_M</p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-secondary">解除</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            searching: false
+        });
+    });
+</script>
+
+</html>
