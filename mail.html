@@ -49,7 +49,7 @@
             </div>
             <!-- Add .accordion-flush to remove the default background-color -->
             <div class="mt-1 flex-grow-1 flex-column" id="menu-tree">
-                <div class="active">
+                <div>
                     <a href="./index.html">
                         <button class="btn btn-primary w-100" type="button">
                             <span class="hide-when-collapsed show menu-list-icon">
@@ -71,8 +71,8 @@
                         </button>
                     </a>
                 </div>
-                <div>
-                    <a href="./mail.html">
+                <div class="active">
+                    <a href="./index.html">
                         <button class="btn btn-primary w-100" type="button">
                             <span class="hide-when-collapsed show menu-list-icon">
                                 <i class="fa-solid fa-paper-plane text-white"></i>
@@ -122,90 +122,93 @@
                     <div class="dropdown m-2">
                         <button class="btn btn-light text-primary dropdown-toggle" type="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            全區
+                            2F
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">1F</a></li>
-                            <li><a class="dropdown-item" href="details.html">2F</a></li>
-                            <li><a class="dropdown-item" href="#">全區</a></li>
+                            <li><a class="dropdown-item" href="#">2F</a></li>
+                            <li><a class="dropdown-item" href="./index.html">全區</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <!-- <div id="title">
-        <div class="w-100 pt-4 position-fixed">
-            <h3 class="ps-5 ms-4 pb-1 text-white">系統儀錶板</h3>
-        </div>
-    </div> -->
     <div class="d-flex position-relative">
         <div class="menu-holder"></div>
         <section class="position-relative w-100" id="system-main">
+            <div class="d-flex justify-content-between px-2 px-xl-4 ">
+                <div class="d-flex">
+                    <h4 class="text-primary my-0 me-3" style="line-height: 2;">遊客回饋系統</h4>
+                    <div class="dropdown m-2">
+                        <button class="btn btn-outline-primary text-primary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            111年度
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">111年度</a></li>
+                            <li><a class="dropdown-item" href="#">110年度</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown m-2">
+                        <button class="btn btn-outline-primary text-primary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            8月
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1月</a></li>
+                            <li><a class="dropdown-item" href="#">2月</a></li>
+                            <li><a class="dropdown-item" href="#">3月</a></li>
+                            <li><a class="dropdown-item" href="#">4月</a></li>
+                            <li><a class="dropdown-item" href="#">5月</a></li>
+                            <li><a class="dropdown-item" href="#">6月</a></li>
+                            <li><a class="dropdown-item" href="#">7月</a></li>
+                            <li><a class="dropdown-item" href="#">8月</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary">報表匯出</button>
+                </div>
+            </div>
             <div class="p-2 px-xl-4 position-relative d-flex flex-column align-items-center w-100">
                 <div class="row justify-content-center align-items-stretch w-100">
-                    <div class="col-xl-6 mb-3">
-                        <div class="card shadow">
-                            <div class="card-body position-relative p-2">
-                                <a href="#"><h5 class="text-primary card-title text-center place-title green">官田服務中心 - 1F</h5></a>
-                                <div class="d-flex row m-2">
-                                    <div class="col-6">
-                                        <div class="card shadow-sm toilet-status h-100">
-                                            <h6 class="text-white card-title text-center bg-primary-light py-2">剩餘間數
-                                            </h6>
-                                            <ul>
-                                                <li class="green-list">男廁：<span>2</span></li>
-                                                <li class="red-list">女廁：<span>滿</span></li>
-                                                <li class="green-list">多功能廁所：<span>1</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="card shadow-sm toilet-status h-100">
-                                            <h6 class="text-white card-title text-center bg-warning py-2">空氣品質
-                                            </h6>
-                                            <ul>
-                                                <li class="green-list">溫度：<span>26度</span></li>
-                                                <li class="green-list">濕度：<span>50%</span></li>
-                                                <li class="green-list">TVOC：<span>0.5 PPM</span></li>
-                                                <li class="green-list">CO2：<span>1.0 PPM</span></li>
-                                                <li class="green-list">PM2.5：<span>12 𝑢𝑔/𝑚^3</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                    <div class="col-12 mb-3 d-flex justify-content-center mail-place-outside">
+                        <div class="card shadow w-100">
+                            <div class="d-flex w-100 justify-content-between p-3 position-relative">
+                                <div class="pe-4">
+                                    <ul class="mb-1">
+                                        <li>編號：11108180001</li>
+                                        <li>回饋日期：111年08月18日</li>
+                                        <li>遊客姓名：Albert，0988-888-888</li>
+                                        <li>遊客email：aazz@etatung.com</li>
+                                    </ul>
+                                </div>
+                                <div class="flex-grow-1 pe-4 px-3">
+                                    <p>意見說明：廁所太熱，建議加裝冷氣</p>
+                                </div>
+                                <div class="h-100 d-flex align-items-center">
+                                    <button class="btn btn-danger">逾期</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 mb-3">
-                        <div class="card shadow">
-                            <div class="card-body position-relative p-2">
-                                <a href="details.html"><h5 class="text-primary card-title text-center place-title red">官田服務中心 - 2F</h5></a>
-                                <div class="d-flex row m-2">
-                                    <div class="col-6">
-                                        <div class="card shadow-sm toilet-status h-100">
-                                            <h6 class="text-white card-title text-center bg-primary-light py-2">剩餘間數
-                                            </h6>
-                                            <ul>
-                                                <li class="green-list">男廁：<span>2</span></li>
-                                                <li class="red-list">女廁：<span>滿</span></li>
-                                                <li class="green-list">多功能廁所：<span>1</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="card shadow-sm toilet-status h-100">
-                                            <h6 class="text-white card-title text-center bg-warning py-2">空氣品質
-                                            </h6>
-                                            <ul>
-                                                <li class="green-list">溫度：<span>26度</span></li>
-                                                <li class="green-list">濕度：<span>50%</span></li>
-                                                <li class="green-list">TVOC：<span>0.5 PPM</span></li>
-                                                <li class="green-list">CO2：<span>1.0 PPM</span></li>
-                                                <li class="green-list">PM2.5：<span>12 𝑢𝑔/𝑚^3</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                    <div class="col-12 mb-3 d-flex justify-content-center mail-place-outside">
+                        <div class="card shadow w-100">
+                            <div class="d-flex w-100 justify-content-between p-3 position-relative">
+                                <div class="pe-4">
+                                    <ul class="mb-1">
+                                        <li>編號：11108200001</li>
+                                        <li>回饋日期：111年08月20日</li>
+                                        <li>遊客姓名：Sean，0909-999-999</li>
+                                        <li>遊客email：aazz@etatung.com</li>
+                                    </ul>
+                                </div>
+                                <div class="flex-grow-1 pe-4 px-3">
+                                    <p>意見說明：建議開放1樓廁所</p>
+                                </div>
+                                <div class="h-100 d-flex align-items-center">
+                                    <button class="btn btn-info text-white">回覆</button>
                                 </div>
                             </div>
                         </div>

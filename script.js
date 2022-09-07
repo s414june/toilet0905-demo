@@ -26,6 +26,7 @@ function collapseMenu() {
     $("#menu").addClass("collapsed");
     $(".menu-holder").addClass("collapsed");
     $(".hide-when-collapsed").removeClass("show").addClass("hide");
+    $(".menu-holder").removeClass("bigger");
 }
 
 function openCollapsedMenu() {
