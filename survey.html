@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遊客滿意度調查</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./font-awesome/css/all.min.css">
+    <script src="js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./font-awesome/js/all.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="m-3 mb-5 pb-5">
+        <div class="card shadow p-4" id="main">
+            <section id="title" class="mb-5">
+                <h1 class="text-primary">遊客滿意度調查</h1>
+                <p>
+                    歡迎蒞臨西拉雅國家風景區！ <br>
+                    誠摯邀請您填寫滿意度問卷，<br>
+                    您的意見是我們進步的動力。
+                </p>
+            </section>
+            <section id="question">
+                <section class="mb-5">
+                    <h3 class="mb-4">廁所滿意度調查</h3>
+                    <section class="mb-4">
+                        <h5>請問你覺得此公共廁所整體的舒適性？</h5>
+                        <div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </section>
+                    <section class="mb-4">
+                        <h5>請問你覺得此公共廁所整體的舒適性？</h5>
+                        <div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </section>
+                    <button class="btn btn-primary my-3">下一頁</button>
+                </section>
+                <section class="mb-5">
+                    <h3 class="mb-4">廁所報修調查</h3>
+                    <p>
+                        您現在所在位置：<br>
+                        <span class="text-primary">
+                            官田遊客中心2樓廁所-男廁
+                        </span>
+                    </p>
+                    <section class="mb-4">
+                        <h5>是否需要報修？</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check py-2 d-flex align-items-center rounded">
+                                    <input type="radio" value="1" id="fix-none" name="fix" class="form-check-input">
+                                    <label for="fix-none" class="form-check-label px-2">不需要</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check py-2 d-flex align-items-center rounded">
+                                    <input type="radio" value="1" id="fix-need" name="fix" class="form-check-input">
+                                    <label for="fix-need" class="form-check-label px-2">需要</label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="mb-4">
+                        <h5>故障物品</h5>
+                        <div>
+                            <select name="" id="" class="form-select col-8">
+                                <option value="">廁間</option>
+                                <option value="">小便斗</option>
+                                <option value="">洗手台</option>
+                                <option value="">衛生紙</option>
+                                <option value="">洗手乳</option>
+                                <option value="">地面</option>
+                                <option value="">廁間便座</option>
+                                <option value="">廁間門鎖</option>
+                            </select>
+                        </div>
+                    </section>
+                    <section class="mb-4">
+                        <h5>故障狀態描述</h5>
+                        <div>
+                            <select name="" id="" class="form-select">
+                                <option value="">缺水</option>
+                                <option value="">積水</option>
+                                <option value="">堵塞</option>
+                                <option value="">門鎖破損</option>
+                                <option value="">損壞</option>
+                                <option value="">備品不足</option>
+                            </select>
+                        </div>
+                    </section>
+                    <button class="btn btn-primary my-3">下一頁</button>
+                </section>
+                <section class="mb-5">
+                    <h3 class="mb-4">意見回饋</h3>
+                    <p>歡迎留下您的建議！您的意見是我們進步的動力。</p>
+                    <section>
+                        <div class="mb-3">
+                            <p>意見回饋</p>
+                            <textarea name="" id="" rows="5" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <p>姓名</p>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <p>連絡電話</p>
+                            <input type="tel" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <p>電子信箱</p>
+                            <input type="email" class="form-control">
+                        </div>
+                    </section>
+                </section>
+                <button class="btn btn-primary my-3">送出</button>
+            </section>
+        </div>
+    </div>
+    <footer class="w-100 bg-white shadow-lg position-fixed py-3" style="bottom:0;">
+        <div class="d-flex justify-content-between" id="progress-place">
+            <div class="d-flex align-items-center">
+                <div style="width:320px;">
+                    <div class="progress shadow-sm">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <span class="px-3">25%</span>
+            </div>
+            <div>
+                <button class="btn btn-light text-primary shadow-sm">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="btn btn-light text-primary shadow-sm">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+</body>
+<style>
+    :root {
+        --bs-primary: rgb(var(--bs-primary-rgb));
+        --bs-primary-rgb: 4, 167, 167;
+        /* background-color: rgb(157, 226, 67); */
+        --bs-light: #e7e7e7;
+    }
+
+    .btn-primary {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+        transition: 0.2s;
+    }
+
+    .btn-light {
+        background-color: var(--bs-light);
+        border-color: var(--bs-light);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+        filter: brightness(1.25);
+        transition: 0.2s;
+    }
+
+    .progress {
+        background-color: var(--bs-light);
+    }
+
+    .form-check-input:checked{
+        background-color: var(--bs-primary);
+        border-color: var(--bs-light);
+        box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+    }
+
+    .form-control {
+        border-color: rgba(var(--bs-primary-rgb), 0.5);
+    }
+
+    textarea.form-control:focus,
+    .form-control:focus,
+    .form-select:focus {
+        box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+        border-color: rgba(var(--bs-primary-rgb));
+        /* filter: contrast(2); */
+    }
+
+    .form-check {
+        padding-left: 0.7rem;
+    }
+
+    .form-check-input {
+        margin-top: 0;
+    }
+
+    .form-check .form-check-input {
+        margin-left: 0;
+    }
+
+    #question h3 {
+        --question-border-width: 5px;
+        border-left: var(--question-border-width) solid var(--bs-primary);
+        /* p-4 -> 1.5rem */
+        padding-left: calc(1.5rem - var(--question-border-width));
+        transform: translateX(-1.5rem);
+    }
+
+    .fa-star {
+        font-size: 2.2rem;
+        color: rgb(194, 194, 194);
+        padding: 0 7px 20px;
+    }
+
+    #main,
+    #progress-place {
+        width: 800px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+    }
+
+    p,
+    label,
+    .form-select {
+        color: var(--bs-secondary);
+        font-size: 1.2rem;
+    }
+
+    .form-check {
+        border: 1px dashed var(--bs-primary);
+    }
+</style>
+
+</html>
