@@ -50,14 +50,14 @@ input[type='range']:active::-webkit-slider-thumb {
   box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.4);
 }
 .menu-list-icon {
-  font-size: 3.5rem;
+  font-size: 2rem;
   display: block;
   margin: 0 auto;
 }
 #menu,
 .menu-holder {
   max-width: calc(100vw - 0.5rem - 45px);
-  width: 280px;
+  width: 210px;
   transition: 0.5s;
   overflow: hidden;
 }
@@ -295,7 +295,7 @@ input[type='range']:active::-webkit-slider-thumb {
   z-index: 4;
 }
 .title-container {
-  transform: translateX(-22.5px);
+  transform: translateX(-8px);
 }
 #desktopMenuBtn {
   z-index: 1000;
@@ -321,6 +321,9 @@ input[type='range']:active::-webkit-slider-thumb {
   }
   .title-container {
     transform: inherit;
+  }
+  .mail-place-outside .d-flex {
+    flex-direction: column;
   }
 }
 /* 內文 */
@@ -432,6 +435,13 @@ div.dataTables_wrapper .row {
   justify-content: center;
   align-items: center;
 }
+#sub-detail .scroll-col {
+  overflow-x: auto;
+}
+#sub-detail .scroll-col,
+.scroll-col-outside {
+  height: 100%;
+}
 @media (max-width: 991px) {
   #account {
     /* position: fixed; */
@@ -480,6 +490,13 @@ div.dataTables_wrapper .row {
   #menu-tree button {
     flex-direction: row;
     justify-content: flex-start;
+  }
+  #sub-detail .scroll-col {
+    overflow-x: initial;
+  }
+  #sub-detail .scroll-col,
+  .scroll-col-outside {
+    height: initial;
   }
 }
 .place-title {
@@ -601,9 +618,6 @@ div.dataTables_wrapper .row {
 .reply-place-outside > .card {
   /* background-color: rgb(230, 242, 252); */
 }
-.query-place {
-  width: calc(100% / 3);
-}
 .table > thead {
   background-color: var(--bs-primary-light);
   color: #fff;
@@ -633,10 +647,22 @@ th {
 .alert-details p {
   margin: 0;
 }
-.alert-details:not(:last-child){
+.alert-details:not(:last-child) {
   border-bottom: 1px solid var(--bs-secondary);
   padding: 10px 0;
 }
-#sub-detail{
+#sub-detail {
   height: calc(100% - 55px);
+}
+.user-info {
+  width: 300px;
+}
+.mail-place-outside .btn {
+  white-space: nowrap;
+}
+#warning-table .btn {
+  white-space: nowrap;
+}
+#warning-table th {
+  /* white-space: nowrap; */
 }
