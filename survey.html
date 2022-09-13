@@ -21,136 +21,210 @@
 <body class="bg-light">
     <div class="m-3 mb-5 pb-5">
         <div class="card shadow p-4" id="main">
-            <section id="title" class="mb-5">
+            <section class="mb-5 single-page" id="start">
                 <h1 class="text-primary">遊客滿意度調查</h1>
-                <p>
-                    歡迎蒞臨西拉雅國家風景區！ <br>
-                    誠摯邀請您填寫滿意度問卷，<br>
-                    您的意見是我們進步的動力。
-                </p>
-            </section>
-            <section id="question">
-                <section class="mb-5">
-                    <h3 class="mb-4">廁所滿意度調查</h3>
-                    <section class="mb-4">
-                        <h5>請問你覺得此公共廁所整體的舒適性？</h5>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </section>
-                    <section class="mb-4">
-                        <h5>請問你覺得此公共廁所整體的舒適性？</h5>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </section>
-                    <button class="btn btn-primary my-3">下一頁</button>
-                </section>
-                <section class="mb-5">
-                    <h3 class="mb-4">廁所報修調查</h3>
+                <section class="mb-4">
                     <p>
-                        您現在所在位置：<br>
-                        <span class="text-primary">
-                            官田遊客中心2樓廁所-男廁
-                        </span>
+                        歡迎蒞臨西拉雅國家風景區！ <br>
+                        誠摯邀請您填寫滿意度問卷，<br>
+                        您的意見是我們進步的動力。
                     </p>
-                    <section class="mb-4">
-                        <h5>是否需要報修？</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-check py-2 d-flex align-items-center rounded">
-                                    <input type="radio" value="1" id="fix-none" name="fix" class="form-check-input">
-                                    <label for="fix-none" class="form-check-label px-2">不需要</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-check py-2 d-flex align-items-center rounded">
-                                    <input type="radio" value="1" id="fix-need" name="fix" class="form-check-input">
-                                    <label for="fix-need" class="form-check-label px-2">需要</label>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="mb-4">
-                        <h5>故障物品</h5>
-                        <div>
-                            <select name="" id="" class="form-select col-8">
-                                <option value="">廁間</option>
-                                <option value="">小便斗</option>
-                                <option value="">洗手台</option>
-                                <option value="">衛生紙</option>
-                                <option value="">洗手乳</option>
-                                <option value="">地面</option>
-                                <option value="">廁間便座</option>
-                                <option value="">廁間門鎖</option>
-                            </select>
-                        </div>
-                    </section>
-                    <section class="mb-4">
-                        <h5>故障狀態描述</h5>
-                        <div>
-                            <select name="" id="" class="form-select">
-                                <option value="">缺水</option>
-                                <option value="">積水</option>
-                                <option value="">堵塞</option>
-                                <option value="">門鎖破損</option>
-                                <option value="">損壞</option>
-                                <option value="">備品不足</option>
-                            </select>
-                        </div>
-                    </section>
-                    <button class="btn btn-primary my-3">下一頁</button>
                 </section>
-                <section class="mb-5">
-                    <h3 class="mb-4">意見回饋</h3>
-                    <p>歡迎留下您的建議！您的意見是我們進步的動力。</p>
-                    <section>
-                        <div class="mb-3">
-                            <p>意見回饋</p>
-                            <textarea name="" id="" rows="5" class="form-control"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <p>姓名</p>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <p>連絡電話</p>
-                            <input type="tel" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <p>電子信箱</p>
-                            <input type="email" class="form-control">
-                        </div>
-                    </section>
+                <div class="w-100 text-center">
+                    <button class="btn btn-primary my-3 wide-btn" onclick="pushPage(1)">開始</button>
+                </div>
+            </section>
+            <section class="mb-5 single-page questions">
+                <h3 class="mb-4">廁所滿意度調查</h3>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">請問你覺得此公共廁所整體的舒適性？</h5>
+                    <div class="star-outside d-flex">
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                    </div>
                 </section>
-                <button class="btn btn-primary my-3">送出</button>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">請問你覺得此公共廁所整體的安全性？</h5>
+                    <div class="star-outside d-flex">
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </section>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">請問你覺得此公共廁所整體的設備齊全度？</h5>
+                    <div class="star-outside d-flex">
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </section>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">請問你覺得此公共廁所的氣味清新舒適性？</h5>
+                    <div class="star-outside d-flex">
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </section>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">請問你覺得此公共廁所的標示是否清楚？</h5>
+                    <div class="star-outside d-flex">
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </section>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">請問你覺得此公共廁所的照明是否足夠？</h5>
+                    <div class="star-outside d-flex">
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </section>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">請問你覺得此公共廁所的空間規劃是否適當？</h5>
+                    <div class="star-outside d-flex">
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                        <div><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </section>
+                <div class="w-100 text-center">
+                    <button class="btn btn-primary my-3" onclick="pushPage(1)">下一頁</button>
+                </div>
+            </section>
+            <section class="mb-5 single-page questions">
+                <h3 class="mb-4">廁所報修調查</h3>
+                <p>
+                    您現在所在位置：<br>
+                    <span class="text-primary">
+                        官田遊客中心2樓廁所-男廁
+                    </span>
+                </p>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">是否需要報修？</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check py-2 d-flex align-items-center rounded mb-2">
+                                <input type="radio" value="0" id="fix-none" name="fix" class="form-check-input"
+                                    oninput="$('.fix-need-info').fadeOut()">
+                                <label for="fix-none" class="form-check-label px-2 w-100">不需要</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check py-2 d-flex align-items-center rounded mb-2">
+                                <input type="radio" value="1" id="fix-need" name="fix" class="form-check-input"
+                                    oninput="$('.fix-need-info').fadeIn()">
+                                <label for="fix-need" class="form-check-label px-2 w-100">需要</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-4 single-question fix-need-info">
+                    <h5 class="mb-3">故障物品</h5>
+                    <div>
+                        <select name="fix-item" id="fix-item" class="form-select col-8">
+                            <option value="">請選擇</option>
+                            <option value="廁間">廁間</option>
+                            <option value="小便斗">小便斗</option>
+                            <option value="洗手台">洗手台</option>
+                            <option value="衛生紙">衛生紙</option>
+                            <option value="洗手乳">洗手乳</option>
+                            <option value="地面">地面</option>
+                            <option value="廁間便座">廁間便座</option>
+                            <option value="廁間門鎖">廁間門鎖</option>
+                        </select>
+                    </div>
+                </section>
+                <section class="mb-4 single-question fix-need-info">
+                    <h5 class="mb-3">故障狀態描述</h5>
+                    <div>
+                        <select name="fix-detail" id="fix-detail" class="form-select"
+                            oninput="$(this).val()=='others'?$('.form-others-input').fadeIn():$('.form-others-input').fadeOut()">
+                            <option value="">請選擇</option>
+                            <option value="缺水">缺水</option>
+                            <option value="積水">積水</option>
+                            <option value="堵塞">堵塞</option>
+                            <option value="門鎖破損">門鎖破損</option>
+                            <option value="損壞">損壞</option>
+                            <option value="備品不足">備品不足</option>
+                            <option value="others">其他</option>
+                        </select>
+                        <input type="text" class="form-control form-others-input my-2" placeholder="請輸入故障狀態">
+                    </div>
+                </section>
+                <div class="w-100 text-center">
+                    <button class="btn btn-primary my-3" onclick="pushPage(1)">下一頁</button>
+                </div>
+            </section>
+            <section class="mb-5 single-page questions">
+                <h3 class="mb-4">意見回饋</h3>
+                <p>歡迎留下您的建議！您的意見是我們進步的動力。</p>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">意見回饋</h5>
+                    <textarea name="" id="" rows="5" class="form-control"></textarea>
+                </section>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">姓名</h5>
+                    <input type="text" class="form-control">
+                </section>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">連絡電話</h5>
+                    <input type="tel" class="form-control">
+                </section>
+                <section class="mb-4 single-question">
+                    <h5 class="mb-3">電子信箱</h5>
+                    <input type="email" class="form-control">
+                </section>
+                <div class="w-100 text-center">
+                    <button class="btn btn-primary my-3 wide-btn" onclick="gotoThanksPage()">送出</button>
+                </div>
+            </section>
+            <section class="mb-5" id="end">
+                <h3 class="mb-4 text-primary">感謝您！我們收到您的建議囉！</h3>
+                <section class="mb-4">
+                    <p>
+                        您的回覆對我們來說相當重要，<br>
+                        我們會持續努力提升服務品質，<br>
+                        期待下次與你相見！:)
+                    </p>
+                </section>
             </section>
         </div>
     </div>
     <footer class="w-100 bg-white shadow-lg position-fixed py-3" style="bottom:0;">
-        <div class="d-flex justify-content-between" id="progress-place">
-            <div class="d-flex align-items-center">
-                <div style="width:320px;">
+        <div class="justify-content-between px-3" id="progress-place">
+            <div class="d-flex align-items-center position-relative" style="max-width:calc(100% - 5rem) ;">
+                <div style="width:320px;max-width:75%;">
                     <div class="progress shadow-sm">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25"
                             aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-                <span class="px-3">25%</span>
+                <span class="px-3 progress-num">25%</span>
             </div>
             <div>
-                <button class="btn btn-light text-primary shadow-sm">
+                <button class="btn btn-light text-primary shadow-sm" id="goLeft" onclick="pushPage(-1)">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
-                <button class="btn btn-light text-primary shadow-sm">
+                <button class="btn btn-light text-primary shadow-sm" id="goRight" onclick="pushPage(1)">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
@@ -165,13 +239,17 @@
         --bs-light: #e7e7e7;
     }
 
-    .btn-primary {
+    .btn-primary,
+    .btn-check:focus+.btn-primary,
+    .btn-primary:focus {
         background-color: var(--bs-primary);
         border-color: var(--bs-primary);
         transition: 0.2s;
     }
 
-    .btn-light {
+    .btn-light,
+    .btn-check:focus+.btn-light,
+    .btn-light:focus {
         background-color: var(--bs-light);
         border-color: var(--bs-light);
     }
@@ -187,7 +265,7 @@
         background-color: var(--bs-light);
     }
 
-    .form-check-input:checked{
+    .form-check-input:checked {
         background-color: var(--bs-primary);
         border-color: var(--bs-light);
         box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
@@ -217,18 +295,22 @@
         margin-left: 0;
     }
 
-    #question h3 {
-        --question-border-width: 5px;
-        border-left: var(--question-border-width) solid var(--bs-primary);
+    .questions h3 {
+        --questions-border-width: 5px;
+        border-left: var(--questions-border-width) solid var(--bs-primary);
         /* p-4 -> 1.5rem */
-        padding-left: calc(1.5rem - var(--question-border-width));
+        padding-left: calc(1.5rem - var(--questions-border-width));
         transform: translateX(-1.5rem);
     }
 
     .fa-star {
-        font-size: 2.2rem;
         color: rgb(194, 194, 194);
-        padding: 0 7px 20px;
+        font-size: calc((100vw - 5rem - 3rem)/5);
+        padding: 0 0 20px;
+    }
+
+    .fa-star.active {
+        color: var(--bs-primary);
     }
 
     #main,
@@ -236,6 +318,10 @@
         width: 800px;
         max-width: 100%;
         margin: 0 auto;
+    }
+
+    #progress-place{
+        display: flex;
     }
 
     .h1,
@@ -257,12 +343,94 @@
     label,
     .form-select {
         color: var(--bs-secondary);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .form-check {
-        border: 1px dashed var(--bs-primary);
+        border: 1px solid rgba(var(--bs-primary-rgb), 0.45);
+    }
+
+    .wide-btn {
+        width: 250px;
+        max-width: 100%;
+    }
+
+    @media (min-width: 370px) {
+        .fa-star {
+            padding: 0 7px 20px;
+        }
+    }
+
+    @media (min-width: 300px) {
+        .fa-star {
+            font-size: 2.2em;
+        }
     }
 </style>
+<script>
+    $(function () {
+        $(".single-page:not(:first-child)").hide();
+        $("#goLeft").attr("disabled", true);
+        $('.fix-need-info').hide();
+        $(".form-others-input").hide();
+        $("#end").hide();
+        CountProgress();
+    })
+    function pushPage(pushPageNumber) {
+        let nowPageNumber = 0;
+        let totalPageCount = $(".single-page").length;
+        $(".single-page").each((i, page) => {
+            if ($(page).css("display") != "none") {
+                nowPageNumber = $(page).index() + 1;
+                return false;
+            }
+        })
+        let gotoPage = nowPageNumber + pushPageNumber;
+        gotoPage == totalPageCount && pushPageNumber > 0 ? $("#goRight").attr("disabled", true) : $("#goRight").attr("disabled", false);
+        nowPageNumber == 2 && pushPageNumber < 0 ? $("#goLeft").attr("disabled", true) : $("#goLeft").attr("disabled", false);
+        if (nowPageNumber == totalPageCount && pushPageNumber > 0) return;
+        if (nowPageNumber == 1 && pushPageNumber < 0) return;
+        $(".single-page:not(:nth-child(" + totalPageCount + "n+" + gotoPage + "))").fadeOut(300);
+        $(".single-page:nth-child(" + totalPageCount + "n+" + gotoPage + ")").delay(300).fadeIn(300);
+    }
+    function gotoThanksPage(){
+        $(".single-page").each((i, page) => {
+            if ($(page).css("display") != "none") {
+                $(page).fadeOut(300);
+                return false;
+            }
+        })
+        $("#end").delay(300).fadeIn(300);
+        $("footer").children().hide();
+    }
+    addEventListener('input', (e) => {
+        if ($(e.target).val() != "" && $(e.target).val() != null && $(e.target).val() != undefined) {
+            $(e.target).parents(".single-question").addClass("done");
+        }
+        else {
+            $(e.target).parents(".single-question").removeClass("done");
+        }
+        CountProgress();
+    });
+    $(".star-outside>div").click((e) => {
+        if ($(e.currentTarget).children().hasClass("active") && !$(e.currentTarget).next().children().hasClass("active")) {
+            $(e.currentTarget).parent().children().children().removeClass("active");
+            $(e.currentTarget).parents(".single-question").removeClass("done");
+        }
+        else {
+            $(e.currentTarget).parent().children(":nth-child(n+" + ($(e.currentTarget).index() + 2) + ")").children().removeClass("active");
+            $(e.currentTarget).parent().children(":not(:nth-child(n+" + ($(e.currentTarget).index() + 2) + "))").children().addClass("active");
+            $(e.currentTarget).parents(".single-question").addClass("done");
+        }
+        CountProgress();
+    })
+    function CountProgress() {
+        let questionsCount = $(".single-question").length;
+        let doneCount = $(".single-question.done").length;
+        let percent = parseInt(doneCount * 100 / questionsCount);
+        $(".progress-num").text(percent + "%");
+        $(".progress-bar").width(percent + "%");
+    }
+</script>
 
 </html>
