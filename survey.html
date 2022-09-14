@@ -232,15 +232,21 @@
                 </section>
                 <section class="mb-4 single-question">
                     <h5 class="mb-3">姓名</h5>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" maxlength="50" pattern="^[`~!@#$%^&*()_\\-+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]">
                 </section>
                 <section class="mb-4 single-question">
                     <h5 class="mb-3">連絡電話</h5>
-                    <input type="tel" class="form-control">
+                    <input type="tel" class="form-control" pattern="\d{5,15}" maxlength="15" >
+                    <div class="invalid-feedback">
+                        請輸入正確的電話格式
+                    </div>
                 </section>
                 <section class="mb-4 single-question">
                     <h5 class="mb-3">電子信箱</h5>
-                    <input type="email" class="form-control">
+                    <input type="email" class="form-control" maxlength="50" >
+                    <div class="invalid-feedback">
+                        請輸入正確的電子信箱格式
+                    </div>
                 </section>
                 <div class="w-100 text-center">
                     <button class="btn btn-primary my-3 wide-btn" type="button" onclick="checkSubmit()">送出</button>
