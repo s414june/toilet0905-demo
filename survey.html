@@ -178,7 +178,7 @@
                     <h5 class="mb-3">故障物品<span class="required-star">*</span></h5>
                     <div>
                         <select name="fix-item" id="fix-item" class="form-select col-8 form-required">
-                            <option value="" disabled selected>請選擇</option>
+                            <option value="" disabled selected hidden>請選擇</option>
                             <option value="廁間">廁間</option>
                             <option value="小便斗">小便斗</option>
                             <option value="洗手台">洗手台</option>
@@ -198,7 +198,7 @@
                     <div>
                         <select name="fix-detail" id="fix-detail" class="form-select form-required"
                             oninput="toggleOthers(this,'.form-others-input')">
-                            <option value="" disabled selected>請選擇</option>
+                            <option value="" disabled selected hidden>請選擇</option>
                             <option value="缺水">缺水</option>
                             <option value="積水">積水</option>
                             <option value="堵塞">堵塞</option>
@@ -273,7 +273,7 @@
                 <button class="btn btn-light text-primary shadow-sm" id="goLeft" onclick="pushPage(-1)">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
-                <button class="btn btn-light text-primary shadow-sm" id="goRight" onclick="pushPage(1)">
+                <button class="btn btn-light text-primary shadow-sm" id="goRight">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
@@ -431,14 +431,22 @@
         isSurvey ? initFirstPage() : gotoThanksPage();
         $("#surveyForm").show();
 
-        let forms = document.querySelectorAll('.questions')
+        let pages = document.querySelectorAll('.single-page')
         // Loop over them and prevent submissiony
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                $(form).find("button").click(function (event) {
-                    checkThisPage(form);
+        Array.prototype.slice.call(pages)
+            .forEach(function (page) {
+                $(page).find("button").click(function (event) {
+                    checkThisPage(page);
                 })
             })
+
+        $("#goRight").click(() => {
+            Array.prototype.slice.call(pages)
+                .forEach(function (page) {
+                    if ($(page).css("display") != "none")
+                        checkThisPage(page);
+                })
+        })
 
     })
 
