@@ -232,7 +232,7 @@
                 </section>
                 <section class="mb-4 single-question">
                     <h5 class="mb-3">姓名</h5>
-                    <input type="text" class="form-control" maxlength="50" pattern="^[`~!@#$%^&*()_\\-+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]">
+                    <input type="text" class="form-control" maxlength="50" >
                 </section>
                 <section class="mb-4 single-question">
                     <h5 class="mb-3">連絡電話</h5>
@@ -276,7 +276,7 @@
                 <span class="px-3 progress-num">0%</span>
             </div>
             <div>
-                <button class="btn btn-light text-primary shadow-sm" id="goLeft" onclick="pushPage(-1)">
+                <button class="btn btn-light text-primary shadow-sm" id="goLeft">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
                 <button class="btn btn-light text-primary shadow-sm" id="goRight">
@@ -454,9 +454,17 @@
                 })
         })
 
+        $("#goLeft").click(() => {
+            Array.prototype.slice.call(pages)
+                .forEach(function (page) {
+                    if ($(page).css("display") != "none")
+                        checkThisPage(page,-1);
+                })
+        })
+
     })
 
-    function checkThisPage(form) {
+    function checkThisPage(form,pushNum) {
         form.classList.add('was-validated')
         let isInvalid = false;
         $(".invalid-feedback").each((i, invalid) => {
@@ -465,6 +473,7 @@
             }
         })
         if (isInvalid) return;
+        if(pushNum) return pushPage(pushNum);
         pushPage(1);
     }
 
